@@ -1,5 +1,6 @@
 from distutils.core import setup
 import fnmatch, os.path
+from codecs import open
 from netlib import version
 
 def _fnmatch(name, patternList):
@@ -65,7 +66,7 @@ def findPackages(path, dataExclude=[]):
     return packages, package_data
 
 
-with open("README.mkd", "rb") as f:
+with open("README.mkd", "rb", "utf-8") as f:
     long_description = f.read()
 packages, package_data = findPackages("netlib")
 setup(

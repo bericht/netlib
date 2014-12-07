@@ -246,7 +246,7 @@ class CertStore:
             potential_keys.extend(self.asterisk_forms(s))
         potential_keys.append((commonname, tuple(sans)))
 
-        name = next(filter(lambda key: key in self.certs, potential_keys), None)
+        name = next([key for key in potential_keys if key in self.certs], None)
         if name:
             c = self.certs[name]
         else:
