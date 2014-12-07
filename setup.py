@@ -65,7 +65,8 @@ def findPackages(path, dataExclude=[]):
     return packages, package_data
 
 
-long_description = file("README.mkd", "rb").read()
+with open("README.mkd", "rb") as f:
+    long_description = f.read()
 packages, package_data = findPackages("netlib")
 setup(
         name = "netlib",
